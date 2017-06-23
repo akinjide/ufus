@@ -3,7 +3,6 @@ module.exports = (app, conf) => {
   const vhost = require('vhost')
   const api = require('./api.js')
 
-  // TODO: configure vhost.
   app.use('/v1/', api(app, conf))
   app.use(vhost('api.ufus.cc', api(app, conf)))
 
