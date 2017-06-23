@@ -5,7 +5,7 @@ module.exports = (app, conf) => {
 
   // TODO: configure vhost.
   app.use('/v1/', api(app, conf))
-  app.use(vhost('api.ufus.cc/v1/', api(app, conf)))
+  app.use(vhost('api.ufus.cc', api(app, conf)))
 
   app.route('/').all((req, res) => {
     res.render('index')
