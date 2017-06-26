@@ -8,7 +8,7 @@ const helmet = require('helmet')
 module.exports = (express, app) => {
   __dirname = app.get('__dirname')
 
-  app.set('view engine', 'ejs');
+  app.set('view engine', 'ejs')
   app.set('views', path.join(__dirname, 'views'))
 
   console.log('Application starting...')

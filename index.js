@@ -10,7 +10,7 @@ process.addListener('uncaughtException', (err, stack) => {
 })
 
 app.set('__dirname', __dirname)
-app.set('env', env);
+app.set('env', env)
 
 // express configuration and routes
 require(path.join(__dirname, 'config', 'express.js'))(express, app)
