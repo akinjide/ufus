@@ -95,14 +95,16 @@ describe('Unit :', () => {
         ['set', redis.kUrl(long_url), short_url],
         ['hmset', redis.kHash(short_url),
           'url', long_url,
-          'hash', short_url
+          'hash', short_url,
+          'clicks', 1
         ]
       ])
       .exec((err, replies) => {
         redis.get(short_url, (err, reply) => {
           assert.equal(reply.hash, process.env._hash2)
           assert.equal(reply.long_url, long_url)
-          assert.equal(Object.keys(reply).length, 2)
+          assert.equal(reply.clicks, 1)
+          assert.equal(Object.keys(reply).length, 3)
           done()
         })
       })
@@ -133,7 +135,8 @@ describe('Unit :', () => {
       conf.burst(env.url + '/' + process.env._hash, (err, reply) => {
         assert.equal(reply.hash, process.env._hash)
         assert.equal(reply.long_url, long_url)
-        assert.equal(Object.keys(reply).length, 2)
+        assert.equal(reply.clicks, 0)
+        assert.equal(Object.keys(reply).length, 3)
         done()
       })
     })

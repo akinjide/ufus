@@ -17,7 +17,7 @@ module.exports = (app, conf) => {
       } else {
         res.redirect(301, reply.long_url)
       }
-    })
+    }, true)
   })
 
   // catch 404 and forwarding to error handler
