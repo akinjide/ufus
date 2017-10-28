@@ -75,7 +75,7 @@ describe('Integration : API', () => {
       .end((err, res) => {
         assert.equal(res.body.long_url, 'https://www.apple.com')
         assert.equal(res.body.hash, process.env._hash)
-        assert.equal(Object.keys(res.body).length, 4)
+        assert.equal(Object.keys(res.body).length, 5)
         done()
       })
   })
@@ -89,7 +89,7 @@ describe('Integration : API', () => {
       .end((err, res) => {
         assert.equal(res.body.long_url, 'https://www.apple.com')
         assert.equal(res.body.hash, process.env._hash)
-        assert.equal(Object.keys(res.body).length, 4)
+        assert.equal(Object.keys(res.body).length, 5)
         done()
       })
   })
