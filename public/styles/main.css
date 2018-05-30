@@ -8,13 +8,25 @@ html, body {
 
 header {
   margin-top: 40px;
-  color: #3c4859;
+  color: #FFFFFF;
   font-family: inherit;
 }
 
-h1 {
+header .tagline {
+  color: #000000;
+  font-weight: 200;
+}
+
+h1, h3 {
   font-weight: bolder;
+}
+
+h1, h3, header .tagline {
   font-family: 'Comfortaa', 'Noto Sans', sans-serif;
+}
+
+h3 {
+  color: #9facbd;
 }
 
 form button {
@@ -45,6 +57,13 @@ form button i {
   margin-right: 4px;
 }
 
+form button.shorten,
+form button.shorten:hover {
+  background-color: #d3dce6 !important;
+  border-color: #d3dce6 !important;
+  color: #FFFFFF !important;
+}
+
 form input {
   text-indent: 30px !important;
   margin-top: 9px !important;
@@ -60,6 +79,8 @@ form p { color: #3c4859; }
 
 .row-huge { margin: 40px 0; }
 
+.huge { height: 20vh; }
+
 .error-emoji {
   color: rgba(0, 0, 0, 0.4);
   font-size: 10.5rem;
@@ -73,4 +94,20 @@ form p { color: #3c4859; }
   border: 1px solid #9facbd;
   height: 35px;
   padding: 11px;
+}
+
+.main .description {
+  height: 100vh;
+  background-image: url(https://console.bluemix.net/images/svg/hexagon-background.svg);
+  background-color: #9facbd;
+  background-repeat: repeat-y;
+  background-size: 100%;
+  padding: 15px 20px;
+  justify-content: center !important;
+  display: flex;
+  align-items: center;
+}
+
+.main .editor {
+  height: 100vh;
 }

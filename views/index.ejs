@@ -14,44 +14,64 @@
   </head>
   <body>
     <div class="container">
+    
+      <div class="row expanded main">
+        <div class="columns large-6 description hide-for-small-only">
 
-      <div class="expanded row">
-        <header class="text-center">
-          <h1>ufus.cc</h1>
-          <p class="lead">ultra fast URL shortener</p>
-        </header>
-      </div>
+          <div class="expanded row">
+            <header class="text-center">
+              <h1>ufus.cc</h1>
+              <p class="lead">ultra fast URL shortener</p>
+              <p><code>npm install ufus</code></p>
+            </header>
+          </div>
+        
+        </div>
+        
+        <div class="columns large-6 editor">
 
-      <div class="row-huge"></div>
+          <div class="row-huge huge"></div>
 
-      <div class="row">
-        <div class="large-8 large-offset-2 columns">
-          <form id="ufus">
-            <input
-              type="text"
-              name="long_url"
-              id="link"
-              placeholder="Paste link"
-              autocomplete="off"
-              aria-describedby="helpText">
+          <div class="expanded row">
+            <header class="text-center small-8 small-offset-2 column">
+              <h3>ufus.cc</h3>
+              <h6 class="tagline subheader">Welcome to ufus, the home of 20+ unique shortened url. Start shortening immediately.</h6>
+            </header>
+          </div>
 
-            <p class="help-text" id="helpText">Your link can be ftp, http, or https.</p>
+          <div class="row-huge"></div>
 
-            <div class="controls row">
-              <div class="small-10 medium-8 large-5 small-centered medium-centered large-centered columns">
-                <button type="submit">
-                  <i class="fa fa-magic" aria-hidden="true"></i>
-                  Shorten
-                </button>
+          <div class="row">
+            <div class="large-10 large-offset-1 columns">
+              <form id="ufus">
+                <input
+                  type="text"
+                  name="long_url"
+                  id="link"
+                  placeholder="Paste link"
+                  autocomplete="off"
+                  aria-describedby="helpText">
 
-                <button class="btn" data-clipboard-target="#link" type="button">
-                  <i class="fa fa-clipboard" aria-hidden="true"></i>
-                  Copy
-                </button>
-              </div>
+                <p class="help-text" id="helpText">Your link can be ftp, http, or https.</p>
+
+                <div class="controls row">
+                  <div class="columns small-8 small-centered large-centered">
+                    <button type="submit" class="shorten">
+                      <i class="fa fa-magic" aria-hidden="true"></i>
+                      Shorten
+                    </button>
+
+                    <button class="btn" data-clipboard-target="#link" type="button">
+                      <i class="fa fa-clipboard" aria-hidden="true"></i>
+                      Copy
+                    </button>
+                  </div>
+                </div>
+
+              </form>
             </div>
+          </div>
 
-          </form>
         </div>
       </div>
 
