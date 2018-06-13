@@ -43,6 +43,25 @@ describe('Integration : API', () => {
       })
   })
 
+  it('should POST /v1/shorten without URI protocol', done => {
+    const body = {
+      long_url: 'google.com'
+    }
+
+    request(app)
+      .post('/v1/shorten')
+      .set('Content-Type', 'application/json')
+      .send(body)
+      .expect('Content-Type', /json/)
+      .expect(200)
+      .end((err, res) => {
+        assert.notEqual(res.body.long_url, body.long_url)
+        assert.equal(res.body.long_url, 'http://' + body.long_url)
+        assert.equal(Object.keys(res.body).length, 5)
+        done()
+      })
+  })
+
   it('should not POST /v1/shorten if long_url is a short_url', done => {
     const body = {
       long_url: 'http://127.0.0.1:3000/' + process.env._hash
