@@ -3,6 +3,7 @@
   function Ufus() {
     this._api = '/v1/shorten/'
     this._form = '#ufus'
+    this._formInput = '#link'
     this._error = 'Oops! You are trying to do something useful.'
   }
 
@@ -10,11 +11,23 @@
     main: function() {
       this._input = $(this._form).find('input')
 
-      if (!this.validate(this._input.val())) {
-        return this.notify(this._error, true)
-      }
+      // if (!this.validate(this._input.val())) {
+      //  return this.notify(this._error, true)
+      // }
 
       this.request(this._input.val())
+    },
+    clipboard: function() {
+      var _this = this
+      var clipboard = new Clipboard('.btn')
+
+      clipboard.on('success', function(e) {
+        _this.notify('copied!')
+      })
+
+      clipboard.on('error', function(e) {
+        _this.notify('Oops! Catastrophic Failure while shortening link.', true)
+      })
     },
     validate: function(url) {
       var regexp = /^(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
@@ -40,7 +53,8 @@
       }, function(data) {
         if (data.hasOwnProperty('status') && parseInt(data.status) === 200) {
           _this._input.val(data.short_url).select()
-          return _this.notify('Copy your shortened url.')
+          _this.notify('Copy your shortened url.')
+          return _this.clipboard()
         } else {
           _this._error = data.statusText
         }
@@ -53,21 +67,16 @@
 
   $(function() {
     var ufus = new Ufus()
-    var clipboard = new Clipboard('.btn')
 
     $(ufus._form).on('submit', function(e) {
       e && e.preventDefault()
       ufus.main()
-
-      clipboard.on('success', function(e) {
-        ufus.notify('copied!')
-      })
-
-      clipboard.on('error', function(e) {
-        ufus.notify('Oops! Catastrophic Failure while shortening link.', true)
-      })
     })
 
+    $(ufus._formInput).on('paste', $.debounce('100', function(e) {
+      e && e.preventDefault()
+      ufus.main()
+    }))
   })
 
 })(window.jQuery)

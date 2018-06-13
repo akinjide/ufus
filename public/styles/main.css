@@ -12,6 +12,14 @@ header {
   font-family: inherit;
 }
 
+code {
+  padding: 10px 20px;
+  border-radius: 30px;
+  color: #00FF00;
+  font-weight: 600;
+  background: none;
+}
+
 header .tagline {
   color: #000000;
   font-weight: 200;
@@ -27,6 +35,10 @@ h1, h3, header .tagline {
 
 h3 {
   color: #9facbd;
+}
+
+p.lead {
+  margin-bottom: 30px;
 }
 
 form button {
@@ -79,7 +91,7 @@ form p { color: #3c4859; }
 
 .row-huge { margin: 40px 0; }
 
-.huge { height: 20vh; }
+.huge { height: 15vh; }
 
 .error-emoji {
   color: rgba(0, 0, 0, 0.4);
@@ -98,8 +110,8 @@ form p { color: #3c4859; }
 
 .main .description {
   height: 100vh;
-  background-image: url(https://console.bluemix.net/images/svg/hexagon-background.svg);
-  background-color: #9facbd;
+  background-image: url(/images/svg/hexagon-background.svg);
+  background-color: #4f565e;
   background-repeat: repeat-y;
   background-size: 100%;
   padding: 15px 20px;
