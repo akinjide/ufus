@@ -6,9 +6,12 @@
   "license": "MIT",
   "scripts": {
     "start": "node index",
-    "test": "mocha --growl --bail"
+    "test": "mocha --growl --bail",
+    "watch:start": "nodemon index --ignore node_modules/ --ignore test/"
   },
   "dependencies": {
+    "async": "^2.6.1",
+    "axios": "^0.18.0",
     "base58": "^0.1.0",
     "body-parser": "^1.17.2",
     "cors": "^2.8.3",
@@ -23,6 +26,7 @@
   "devDependencies": {
     "fakeredis": "^2.0.0",
     "mocha": "^3.4.2",
+    "nodemon": "^1.17.5",
     "supertest": "^3.0.0"
   },
   "engines": {
