@@ -1,3 +1,8 @@
+// TODO
+// allow user supply own short-code for a URL
+// The error message should be away from the form, and leave after notifying
+// keep track of all shortened link if user signs up. // might skip this.
+
 const express = require('express')
 const app = module.exports = express()
 const path = require('path')
